@@ -1,4 +1,4 @@
-const STATUS_CODE = {
+const STATUS_CODES = {
     OK: 200,
     Created: 201,
     Accepted: 202,
@@ -65,4 +65,4 @@ const METHODS = {
     PATCH: "PATCH",
 } as const;
 
-export { STATUS_CODE, METHODS };
+export { STATUS_CODES, METHODS };

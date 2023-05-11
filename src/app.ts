@@ -5,7 +5,8 @@ import { createRadixTree, mergeRadixTree } from "rrat";
 
 import type { Route, Router, Response, Request } from "./router";
 import { parseRequest } from "./parse/request";
-import { buildResponse } from "./utils";
+import { buildResponse, buildReturnMsg } from "./utils";
+import { STATUS_CODES } from "./constant";
 
 type Event = "onError" | "onRequest";
 
@@ -61,7 +62,8 @@ const toNodeListener = (app: App): RequestListener => {
             endpoint.content[req.method]?.(req, res);
         } catch (e) {
             // Internal server error
-            res.statusCode = 500;
+            res.statusCode = STATUS_CODES.InternalServerError;
+            res.message = buildReturnMsg(STATUS_CODES.InternalServerError, "Internal server error");
             app.eventListeners.onError.forEach((cbk) => {
                 try {
                     cbk(e, req, res);
