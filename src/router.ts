@@ -1,11 +1,11 @@
 import type { RadixTree } from "rrat";
 import { createRadixTree } from "rrat";
-import type { METHODS, STATUS_CODE } from "./constant";
+import type { METHODS, STATUS_CODES } from "./constant";
 
 // eslint-disable-next-line @typescript-eslint/no-type-alias
 type MethodNames = (typeof METHODS)[keyof typeof METHODS];
 // eslint-disable-next-line @typescript-eslint/no-type-alias
-type StatusCodes = (typeof STATUS_CODE)[keyof typeof STATUS_CODE];
+type StatusCodes = (typeof STATUS_CODES)[keyof typeof STATUS_CODES];
 
 interface Request {
     url: string;
@@ -33,14 +33,10 @@ const createRouter = (base = ""): Router => {
     return router;
 };
 
-const createRoute = (): Route => {
-    return {};
-};
-
 const use = (router: Router, path: string, route: Route): Router => {
     router.routes.insert(path, route);
     return router;
 };
 
-export { createRouter, createRoute };
+export { createRouter };
 export type { Route, Router, Request, Response };
