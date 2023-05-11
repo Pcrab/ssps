@@ -49,7 +49,7 @@
     "license": "MIT",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
-    "name": "sps",
+    "name": "ssps",
     "prettier": "@pcrab/prettier-config",
     "scripts": {
         "build": "pnpm run tsnode scripts/build.ts",
