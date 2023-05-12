@@ -5,7 +5,7 @@ import { createRadixTree, mergeRadixTree } from "rrat";
 
 import type { Route, Router, Response, Request } from "./router";
 import { parseRequest } from "./parse/request";
-import { buildResponse, buildReturnErr } from "./utils";
+import { buildResponse, buildReturnErr } from "./parse";
 import { STATUS_CODES } from "./constant";
 
 type Event = "onError" | "onRequest";
