@@ -6,11 +6,16 @@ const buildResponse = (res: Response, rawRes: ServerResponse): void => {
     rawRes.end(res.message);
 };
 
-const buildReturnMsg = (statusCode: number, message: unknown): string => {
+const buildReturnMsg = (message: unknown): string => {
     return JSON.stringify({
-        code: statusCode,
         msg: JSON.stringify(message),
     });
 };
 
-export { buildResponse, buildReturnMsg };
+const buildReturnErr = (errMsg: unknown): string => {
+    return JSON.stringify({
+        err: JSON.stringify(errMsg),
+    });
+};
+
+export { buildResponse, buildReturnMsg, buildReturnErr };
